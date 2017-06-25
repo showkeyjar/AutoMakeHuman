@@ -88,9 +88,9 @@ class Modifier1TaskView(gui3d.TaskView):
             action = humanmodifier.ModifierAction(slider.modifier, value, valuesli, sli.update)
             G.app.do(action)
 
-        def worker(self,stopSearch):
+        def worker(sliders,stopSearch):
             log.message('start...')
-            for slider in self.sliders:
+            for slider in sliders:
                 if (stopSearch):
                     stopSearch = False
                     break
@@ -109,12 +109,14 @@ class Modifier1TaskView(gui3d.TaskView):
                     # #sli.onChanging(slider.modifier.getValue())
                     action = humanmodifier.ModifierAction(slider.modifier, value, valuesli, sli.update)
                     log.message('before value:' + str(value))
-                    # 更新主场景
-                    # if valuesli != value:
-                    #     G.app.do(action)
-                    # else:
-                    #     action.do()
+                    # 以下更新场景代码均无效
+                    if valuesli != value:
+                        G.app.do(action)
+                    else:
+                        action.do()
+                    #gui3d.app.do(action)
                     #G.app.do(action)
+                    #G.app.redraw()
                     log.message('update views')
                     value = valuesli
                     filenameImage = fileAotupicture + '/' + str(time.strftime("%Y-%m-%d_%H.%M.%S")) + '.png'
@@ -209,10 +211,11 @@ class Modifier1TaskView(gui3d.TaskView):
                 self.aButton.setLabel(u'停止匹配')
                 self.aButton.setEnabled(True)
                 bodySearching = True
-                if(t is None):
-                    t = threading.Thread(target=worker,args=(self,stopSearch))
-                if(t != None):
-                    t.start()
+                # if(t is None):
+                #     t = threading.Thread(target=worker,args=(self.sliders,stopSearch))
+                # if(t != None):
+                #     t.start()
+                worker(self.sliders,stopSearch)
             else:
                 stopSearch = True
                 bodySearching = False
