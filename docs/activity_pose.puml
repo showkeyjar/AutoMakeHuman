@@ -1,0 +1,10 @@
+@startuml
+(*)  --> "输入图像"
+If "图像具备有效边界" then
+--> [Yes] "初始化3D模型"
+--> [No] "run command"
+else
+--> "run command"
+Endif
+-->(*)
+@enduml

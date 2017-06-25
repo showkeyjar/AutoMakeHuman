@@ -1,0 +1,33 @@
+FindContours
+picture.png
+filepicture=os.path.abspath(os.path.join(os.path.dirname('7_AotuPose.py'),os.path.pardir))+'/makehuman/data/MyAotudata/picture.png'
+def GetDeltValue(img,filename2):
+    contour1 = FindContours1(img)
+    contour2 = FindContours(filename2)
+    
+    #cv2.drawContours(img,contour1,-1,(0,0,255),1)
+    #cv2.imshow("img1",img)
+    #cv2.waitKey(1000)    
+    
+    #cv2.drawContours(filename2,contour2,-1,(0,0,255),1)
+    #cv2.imshow("img2",filename2)
+    #cv2.waitKey(1000)    
+    num1 = len(contour1)
+    num2 = len(contour2)
+  #  print(num1)
+  #  print(num2)
+    C1 = GetFinalContour(contour1,num1)
+    C2 = GetFinalContour(contour2,num2)
+    
+    cv2.drawContours(img,C1,-1,(0,0,255),1)
+    cv2.imshow("img1",img)
+    #cv2.waitKey(1000)    
+    
+    cv2.drawContours(filename2,C2,-1,(0,0,255),1)
+    cv2.imshow("img2",filename2)
+    cv2.waitKey(1000)        
+    
+    #print(len(C1))
+    #print(len(C2))
+    deltV = MatchContours(C1,C2)
+    return deltV

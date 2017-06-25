@@ -1,0 +1,16 @@
+ {
+  "AutoBody": {
+    "sortOrder": 3,
+    "showMacroStats": true,
+    "modifiers": {
+      "AutoClass1": [
+          {"mod": "macrodetails-universal/Muscle", "label": "Muscle"},
+          {"mod": "macrodetails-universal/Weight", "label": "Weight"},
+          {"mod": "macrodetails-height/Height", "label": "Height"},
+          {"mod": "macrodetails-proportions/BodyProportions", "label": "Proportions"},
+	   {"mod": "macrodetails/Asian", "label": "Asian"}
+        ]
+    }
+  }
+
+}
