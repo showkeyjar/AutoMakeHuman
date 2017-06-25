@@ -367,8 +367,8 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             # result=cv2.imread(filenameImaFit)
             result = imsavefit
             result2 = cv2.imread(filepicture)
-            cv2.imshow("Result", result)
-            cv2.imshow("Original", result2)
+            # cv2.imshow("Result", result)
+            # cv2.imshow("Original", result2)
             # cv2.waitKey(10)
             log.message(deltvalue1)
             log.message(num1)
@@ -412,17 +412,19 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
 
                 imsave = normalize.Normalize(img)
                 cv2.imwrite(filenameIma, imsave)
-                cv2.imshow("img", imsave)
-                cv2.waitKey(10)
-                delt2 = onpicture()
+                #cv2.imshow("img", imsave)
+                #cv2.waitKey(10)
+                #delt2 = onpicture()
+                imnew = cv2.imread(filepicture)
+                delt2=findcontours.GetDeltValue(imsave, imnew)
                 if delt2 <= deltvalue2[0]:
                     deltvalue2[0] = delt2
                     deltva2[0] = value - 50
 
             num2 = (deltva2[0] + 50) / 5
             result = cv2.imread(fileResult + str(num2) + '.png')
-            cv2.imshow("Result", result)
-            cv2.waitKey(0)
+            # cv2.imshow("Result", result)
+            # cv2.waitKey(0)
             log.message(deltvalue2)
             log.message(num2)
 
@@ -464,9 +466,11 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
 
                 imsave = normalize.Normalize(img)
                 cv2.imwrite(filenameIma, imsave)
-                cv2.imshow("img", imsave)
-                cv2.waitKey(10)
-                delt3 = onpicture()
+                # cv2.imshow("img", imsave)
+                # cv2.waitKey(10)
+                # delt3 = onpicture()
+                imnew = cv2.imread(filepicture)
+                delt2 = findcontours.GetDeltValue(imsave, imnew)
                 if delt3 <= deltvalue3[0]:
                     deltvalue3[0] = delt3
                     deltva3[0] = value - 50
@@ -516,9 +520,11 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
 
                 imsave = normalize.Normalize(img)
                 cv2.imwrite(filenameIma, imsave)
-                cv2.imshow("img", imsave)
-                cv2.waitKey(10)
-                delt4 = onpicture()
+                #cv2.imshow("img", imsave)
+                #cv2.waitKey(10)
+                #delt4 = onpicture()
+                imnew = cv2.imread(filepicture)
+                delt4 = findcontours.GetDeltValue(imsave, imnew)
                 if delt4 <= deltvalue4[0]:
                     deltvalue4[0] = delt4
                     deltva4[0] = value - 50
@@ -568,9 +574,11 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
 
                 imsave = normalize.Normalize(img)
                 cv2.imwrite(filenameIma, imsave)
-                cv2.imshow("img", imsave)
-                cv2.waitKey(10)
-                delt5 = onpicture()
+                #cv2.imshow("img", imsave)
+                #cv2.waitKey(10)
+                #delt5 = onpicture()
+                imnew = cv2.imread(filepicture)
+                delt5 = findcontours.GetDeltValue(imsave, imnew)
                 if delt5 <= deltvalue5[0]:
                     deltvalue5[0] = delt5
                     deltva5[0] = value - 50
@@ -655,8 +663,8 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             # result=cv2.imread(filenameImaFit)
             result = imsavefit
             result2 = cv2.imread(filepicture)
-            cv2.imshow("Result", result)
-            cv2.imshow("Original", result2)
+            #cv2.imshow("Result", result)
+            #cv2.imshow("Original", result2)
             # cv2.waitKey(10)
             log.message(deltvalue6)
             log.message(num1)
@@ -733,10 +741,10 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             num1 = (deltva7[0] + 50) / 5
             # result=cv2.imread(fileResult+str(num1)+'.png')
             # result=cv2.imread(filenameImaFit)
-            result = imsavefit
-            result2 = cv2.imread(filepicture)
-            cv2.imshow("Result", result)
-            cv2.imshow("Original", result2)
+            #result = imsavefit
+            #result2 = cv2.imread(filepicture)
+            #cv2.imshow("Result", result)
+            #cv2.imshow("Original", result2)
             # cv2.waitKey(10)
             log.message(deltvalue7)
             log.message(num1)
@@ -813,10 +821,10 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             num1 = (deltva8[0] + 50) / 5
             # result=cv2.imread(fileResult+str(num1)+'.png')
             # result=cv2.imread(filenameImaFit)
-            result = imsavefit
-            result2 = cv2.imread(filepicture)
-            cv2.imshow("Result", result)
-            cv2.imshow("Original", result2)
+            #result = imsavefit
+            #result2 = cv2.imread(filepicture)
+            #cv2.imshow("Result", result)
+            #cv2.imshow("Original", result2)
             # cv2.waitKey(10)
             log.message(deltvalue8)
             log.message(num1)
