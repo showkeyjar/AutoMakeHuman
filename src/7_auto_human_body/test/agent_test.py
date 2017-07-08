@@ -1,0 +1,2 @@
+
+agent = NAFAgent()
