@@ -16,8 +16,8 @@ from keras import backend as K
 flags = tf.app.flags
 
 flags.DEFINE_string('experiment', 'dqn_breakout', 'Name of the current experiment')
-flags.DEFINE_string('game', 'Breakout-v0',
-                    'Name of the atari game to play. Full list here: https://gym.openai.com/envs#atari')
+#flags.DEFINE_string('game', 'Breakout-v0','Name of the atari game to play. Full list here: https://gym.openai.com/envs#atari')
+flags.DEFINE_string('game', 'BreakoutDeterministic-v4','Name of the atari game to play. Full list here: https://gym.openai.com/envs#atari')
 flags.DEFINE_integer('num_concurrent', 8, 'Number of concurrent actor-learner threads to use during training.')
 flags.DEFINE_integer('tmax', 80000000, 'Number of training timesteps.')
 flags.DEFINE_integer('resized_width', 84, 'Scale screen to this width.')
