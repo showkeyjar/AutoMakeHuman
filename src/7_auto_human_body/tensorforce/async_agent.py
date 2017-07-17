@@ -42,8 +42,8 @@ def main():
 
     parser.add_argument('gym_id', help="ID of the gym environment")
     parser.add_argument('-a', '--agent', help='Agent')
-    parser.add_argument('-c', '--agent-config', help="Agent configuration file")
-    parser.add_argument('-n', '--network-config', help="Network configuration file")
+    parser.add_argument('-c', '--agent-configs', help="Agent configuration file")
+    parser.add_argument('-n', '--network-configs', help="Network configuration file")
     parser.add_argument('-e', '--episodes', type=int, default=50000, help="Number of episodes")
     parser.add_argument('-t', '--max-timesteps', type=int, default=2000, help="Maximum number of timesteps per episode")
     parser.add_argument('-w', '--num-workers', type=int, default=1, help="Number of worker agents")
@@ -89,8 +89,8 @@ def main():
                 args.gym_id,
                 '--is-child',
                 '--agent', args.agent,
-                '--agent-config', os.path.join(os.getcwd(), args.agent_config),
-                '--network-config', os.path.join(os.getcwd(), args.network_config),
+                '--agent-configs', os.path.join(os.getcwd(), args.agent_config),
+                '--network-configs', os.path.join(os.getcwd(), args.network_config),
                 '--num-workers', args.num_workers,
                 '--task-index', index
             ]
