@@ -33,7 +33,7 @@
 
 ## Support
     see Wiki and Issues
-    zergskj@163.com
+    <zergskj@163.com>
 
 ------------------
 
@@ -41,3 +41,5 @@
  1.Add reinforcement-learning to auto generate model.
 
  2.Add body edge detected.
+
+ 3.Use NEAT structure to generate RNN.
