@@ -32,8 +32,9 @@
     bin/install.sh
 
 ## Support
-    see Wiki and Issues
-    <zergskj@163.com>
+  see Wiki and Issues
+
+  mailto:<zergskj@163.com>
 
 ------------------
 
