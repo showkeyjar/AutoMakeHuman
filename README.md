@@ -43,3 +43,5 @@
  2.Add body edge detected.
 
  3.Use NEAT structure to generate RNN.
+
+ 4.Adjust NEAT policy study more once.
