@@ -60,3 +60,10 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+test/NEAT/MarioOpenAI-Neat/checkpoint
+test/NEAT/MarioOpenAI-Neat/fitness_history.csv
+test/NEAT/MarioOpenAI-Neat/speciation.csv
+test/NEAT/MarioOpenAI-Neat/species_fitness.csv
+test/NEAT/MarioOpenAI-Neat/*.pkl
+test/NEAT/MarioOpenAI-Neat/checkpoint_200
