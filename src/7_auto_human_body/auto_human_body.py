@@ -401,13 +401,3 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
         taskViews.append(taskView)
 
     return taskViews
-
-
-def load(app):
-    category = app.getCategory('Utilities')
-    # taskview = category.addTask(AotuclassTaskView(category))
-    loadModifierTaskViews(fileStartDir + '/data/MyAutoData/Mysliders.json', app.selectedHuman, category)
-
-
-def unload(app):
-    pass

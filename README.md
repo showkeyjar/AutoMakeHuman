@@ -29,8 +29,17 @@
     2.重启makehuman,在makehuman的"工具"栏下即可看到新安装的插件
 
 ## Install
+
+V1.1.1
+
     chmod +x bin/*.sh
     bin/install.sh
+V1.2 +
+
+    1. open makehuman
+    2. switch tab to "Settings" to install user plugin
+    3. activate plugin.
+    4. if have some problem, check logs.
     
 ## Develop
 

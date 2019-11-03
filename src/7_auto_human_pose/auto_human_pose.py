@@ -1188,24 +1188,24 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             file.write('pose %s\n' % poseFile)
 
 
-category = None
-taskview = None
+# category = None
+# taskview = None
 
 
 # This method is called when the plugin is loaded into makehuman
 # The app reference is passed so that a plugin can attach a new category, task, or other GUI elements
-def load(app):
-    global taskview
-    category = app.getCategory('Utilities')
-    taskview = PoseLibraryAotu1TaskView(category)
-    taskview.sortOrder = 2
-    category.addTask(taskview)
-
-    app.addLoadHandler('pose', taskview.loadHandler)
-    app.addSaveHandler(taskview.saveHandler, priority=6)  # After skeleton library
+# def load(app):
+#     global taskview
+#     category = app.getCategory('Utilities')
+#     taskview = PoseLibraryAotu1TaskView(category)
+#     taskview.sortOrder = 2
+#     category.addTask(taskview)
+#
+#     app.addLoadHandler('pose', taskview.loadHandler)
+#     app.addSaveHandler(taskview.saveHandler, priority=6)  # After skeleton library
 
 
 # This method is called when the plugin is unloaded from makehuman
 # At the moment this is not used, but in the future it will remove the added GUI elements
-def unload(app):
-    taskview.onUnload()
+# def unload(app):
+#     taskview.onUnload()
