@@ -471,8 +471,8 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
                 # delt3 = onpicture()
                 imnew = cv2.imread(filepicture)
                 delt2 = findcontours.GetDeltValue(imsave, imnew)
-                if delt3 <= deltvalue3[0]:
-                    deltvalue3[0] = delt3
+                if delt2 <= deltvalue3[0]:
+                    deltvalue3[0] = delt2
                     deltva3[0] = value - 50
 
             num3 = (deltva3[0] + 50) / 5
@@ -875,7 +875,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             totalChannels = sum([len(joint.channels) for joint in allJoints])
 
             frameData = []
-            for fIdx in xrange(bvh1.frameCount):
+            for fIdx in range(bvh1.frameCount):
                 for joint in allJoints:
                     offset = fIdx * len(joint.channels)
                     frameData.extend(joint.frames[offset:offset + len(joint.channels)])
@@ -889,7 +889,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             frameData[439] = str(a6[0])
             frameData[508] = str(a7[0])
             frameData[514] = str(a8[0])
-            for fIdx in xrange(bvh1.frameCount):
+            for fIdx in range(bvh1.frameCount):
                 frameData = [str(fl) for fl in frameData]
                 f.write('%s\n' % " ".join(frameData))
 
@@ -1052,13 +1052,10 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             nFrames = len(jointsData[0])
             totalChannels = sum([len(joint.channels) for joint in allJoints])
             frameData = []
-            for fIdx in xrange(bvh1.frameCount):
+            for fIdx in range(bvh1.frameCount):
                 for joint in allJoints:
                     offset = fIdx * len(joint.channels)
                     frameData.extend(joint.frames[offset:offset + len(joint.channels)])
-                frameData = [str(fl) for fl in frameData]
-
-            for fIdx in xrange(bvh1.frameCount):
                 frameData = [str(fl) for fl in frameData]
                 f.write('%s\n' % " ".join(frameData))
 
