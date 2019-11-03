@@ -161,7 +161,7 @@ class Modifier1TaskView(gui3d.TaskView):
                         if delt <= deltvalue[0]:
                             deltvalue[0] = delt
                             deltva[0] = valuenums
-                    except Exception, e:
+                    except Exception as e:
                         log.message(e)
                 num = deltva[0] * 20 + 1
                 # result = cv2.imread(fileResult + str(num) + '.png')

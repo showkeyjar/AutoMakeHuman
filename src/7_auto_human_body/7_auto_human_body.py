@@ -1,13 +1,18 @@
-#!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 import sys
-
+import time
+import glmodule
+import numpy as np
+import cv2
+import os
+import log
+import mh
 import OpenGL
-import getpath
 import gui
 import gui3d
 import humanmodifier
 import modifierslider
+from collections import OrderedDict
 from core import G
 
 OpenGL.ERROR_CHECKING = G.args.get('debugopengl', False)
@@ -16,22 +21,15 @@ OpenGL.FULL_LOGGING = G.args.get('fullloggingopengl', False)
 OpenGL.ERROR_ON_COPY = True
 from OpenGL.GL import *
 from OpenGL.GL.ARB.texture_multisample import *
-import time
-import glmodule
-import numpy as np
-import cv2
-import os
 
 #fileStartDir = os.path.abspath(os.path.dirname('7_auto_human_body.py'))+'/plugins'
-fileStartDir='/usr/share/makehuman/plugins/7_auto_human_body'
-fileAotuDate = fileStartDir + '/data/MyAutoData'
+# make_human_path = '/usr/share/makehuman'
+make_human_path = 'D:/Python/human/makehuman/makehuman'
+fileStartDir = make_human_path + '/plugins/7_auto_human_body'
+fileAutoData = fileStartDir + '/data/MyAutoData'
 fileResult = fileStartDir + '/data/MyAutoData/'
 filepicture = fileStartDir + '/data/MyAutoData/picture.png'
-from collections import OrderedDict
-import log
-import mh
-
-sys.path.append(fileAotuDate)
+# sys.path.append(fileAutoData)
 from . import normalize, findcontours
 
 fileAotupicture = fileStartDir + "/data/Auto3DImage"
@@ -408,7 +406,7 @@ def loadModifierTaskViews(filename, human, category, taskviewClass=None):
 def load(app):
     category = app.getCategory('Utilities')
     # taskview = category.addTask(AotuclassTaskView(category))
-    loadModifierTaskViews(fileStartDir+'/data/MyAutoData/Mysliders.json', app.selectedHuman, category)
+    loadModifierTaskViews(fileStartDir + '/data/MyAutoData/Mysliders.json', app.selectedHuman, category)
 
 
 def unload(app):

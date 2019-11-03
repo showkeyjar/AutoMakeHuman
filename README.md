@@ -7,7 +7,8 @@
 
     基于开源3D软件MakeHuman编写的插件
     主要功能是输入二维图片，通过改变三维人体模型的参数，把模型映射到二维空间，通过轮廓迭代求优算法，得到三维模型与二维图片的配准
-    在 ubuntu16 + makehuman1.1.1 + opencv3 下通过测试
+    
+    请根据实际安装路径，修改源码中的路径
 
 ## Main Features
  - Auto create 3d models
@@ -30,6 +31,19 @@
 ## Install
     chmod +x bin/*.sh
     bin/install.sh
+    
+## Develop
+
+    conda create -n human
+    set MAKEHUMAN_PATH=D:/Python/human/makehuman/makehuman
+    conda-develop %MAKEHUMAN_PATH% %MAKEHUMAN_PATH%/apps %MAKEHUMAN_PATH%/lib %MAKEHUMAN_PATH%/core %MAKEHUMAN_PATH%/shared
+
+## Question
+
+### 1. no path found
+    makehuman/plugins/7_auto_human_body/data/Auto3DImage
+    
+    create those paths
 
 ## Support
   see Wiki and Issues
