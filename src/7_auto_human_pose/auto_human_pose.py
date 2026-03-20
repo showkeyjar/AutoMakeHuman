@@ -26,21 +26,20 @@ from OpenGL.GL.ARB.texture_multisample import *
 from . import normalize, findcontours
 
 
-make_human_dir = 'D:/Python/human/makehuman/makehuman'
+PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(PLUGIN_DIR, 'data', 'MyAutoData')
 
-fileResult = make_human_dir + '/data/MyAutoData/'
-filepath1 = make_human_dir + '/data/MyAutoData/ORIGINAL_MODEL.bvh'
-fileout = make_human_dir + '/data/MyAutoData/OUTPUT_MODEL.bvh'
-filepicbvh = make_human_dir + '/data/MyAutoData/MyPicture.bvh'
-filepicture = make_human_dir + '/data/MyAutoData/picture.png'
+fileResult = DATA_DIR + os.sep
+filepath1 = os.path.join(DATA_DIR, 'ORIGINAL_MODEL.bvh')
+fileout = os.path.join(DATA_DIR, 'OUTPUT_MODEL.bvh')
+filepicbvh = os.path.join(DATA_DIR, 'MyPicture.bvh')
+filepicture = os.path.join(DATA_DIR, 'picture.png')
 sys.path.append(fileResult)
 
-work_dir = make_human_dir + '/plugins/7_auto_human_pose/data/Auto3DImage/'
+work_dir = os.path.join(PLUGIN_DIR, 'data', 'Auto3DImage') + os.sep
 
-if os.path.exists(fileResult):
-    pass
-else:
-    os.mkdir(fileResult)
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(work_dir, exist_ok=True)
 
 
 class AotuPose1(gui3d.Action):
@@ -254,7 +253,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
         self.skelObj = None
         # filepath1=self.paths+'\\ORIGINAL_MODEL.bvh'
         # filepath1=filepath0[0]
-        fp = open(filepath1, "rU")
+        fp = open(filepath1, "r")
         bvh1 = bvh.BVH()
         bvh2 = bvh1._BVH__expectKeyword('HIERARCHY', fp)
         words = bvh1._BVH__expectKeyword('ROOT', fp)
@@ -324,7 +323,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
                 # log.message(filenameImage)
                 # mh.grabScreen(300,225,width,height,filenameImage)  #存盘
 
-                mh.grabScreen(Xdel / 2, Ydel / 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
+                mh.grabScreen(Xdel // 2, Ydel // 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
                 log.message("Saved screengrab to %s", filenameImage)
 
                 img = cv2.imread(filenameImage)  # 存盘
@@ -612,7 +611,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
                 # log.message(filenameImage)
                 # mh.grabScreen(300,225,width,height,filenameImage)  #存盘
 
-                mh.grabScreen(Xdel / 2, Ydel / 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
+                mh.grabScreen(Xdel // 2, Ydel // 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
                 log.message("Saved screengrab to %s", filenameImage)
 
                 img = cv2.imread(filenameImage)  # 存盘
@@ -692,7 +691,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
                 # log.message(filenameImage)
                 # mh.grabScreen(300,225,width,height,filenameImage)  #存盘
 
-                mh.grabScreen(Xdel / 2, Ydel / 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
+                mh.grabScreen(Xdel // 2, Ydel // 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
                 log.message("Saved screengrab to %s", filenameImage)
 
                 img = cv2.imread(filenameImage)  # 存盘
@@ -772,7 +771,7 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
                 # log.message(filenameImage)
                 # mh.grabScreen(300,225,width,height,filenameImage)  #存盘
 
-                mh.grabScreen(Xdel / 2, Ydel / 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
+                mh.grabScreen(Xdel // 2, Ydel // 2, width, height, filenameImage)  # 不存盘，全在内在操作，提高速度
                 log.message("Saved screengrab to %s", filenameImage)
 
                 img = cv2.imread(filenameImage)  # 存盘
@@ -1013,8 +1012,8 @@ class PoseLibraryAotu1TaskView(gui3d.TaskView, filecache.MetadataCacher):
             if width != rwidth or height != rheight:
                 surf = np.zeros((height, width, 3), dtype=np.uint8) + 127
                 surf[...] = surface[:1, :1, :]
-                dx0 = (width - rwidth) / 2
-                dy0 = (height - rheight) / 2
+                dx0 = (width - rwidth) // 2
+                dy0 = (height - rheight) // 2
                 dx1 = dx0 + rwidth
                 dy1 = dy0 + rheight
                 surf[dy0:dy1, dx0:dx1] = surface

@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
-sudo cp -R ../src/* /usr/share/makehuman/plugins/
-sudo chmod 777 -R /usr/share/makehuman/plugins/7_auto_human_body/data
-sudo chmod 777 -R /usr/share/makehuman/plugins/7_auto_human_pose/data
+set -euo pipefail
+
+TARGET_DIR="${1:-${MAKEHUMAN_PLUGIN_DIR:-}}"
+
+if [[ -z "${TARGET_DIR}" ]]; then
+  echo "Usage: bin/install.sh /path/to/makehuman/plugins"
+  echo "Or set MAKEHUMAN_PLUGIN_DIR."
+  exit 1
+fi
+
+python "$(dirname "$0")/install.py" --target "${TARGET_DIR}"

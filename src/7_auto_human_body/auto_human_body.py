@@ -22,21 +22,16 @@ OpenGL.ERROR_ON_COPY = True
 from OpenGL.GL import *
 from OpenGL.GL.ARB.texture_multisample import *
 
-#fileStartDir = os.path.abspath(os.path.dirname('7_auto_human_body.py'))+'/plugins'
-# make_human_path = '/usr/share/makehuman'
-make_human_path = 'D:/Python/human/makehuman/makehuman'
-fileStartDir = make_human_path + '/plugins/7_auto_human_body'
-fileAutoData = fileStartDir + '/data/MyAutoData'
-fileResult = fileStartDir + '/data/MyAutoData/'
-filepicture = fileStartDir + '/data/MyAutoData/picture.png'
-# sys.path.append(fileAutoData)
+PLUGIN_DIR = os.path.dirname(os.path.abspath(__file__))
+fileStartDir = PLUGIN_DIR
+fileAutoData = os.path.join(fileStartDir, 'data', 'MyAutoData')
+fileResult = fileAutoData + os.sep
+filepicture = os.path.join(fileAutoData, 'picture.png')
 from . import normalize, findcontours
 
-fileAotupicture = fileStartDir + "/data/Auto3DImage"
-if os.path.exists(fileAotupicture):
-    pass
-else:
-    os.mkdir(fileAotupicture)
+fileAotupicture = os.path.join(fileStartDir, 'data', 'Auto3DImage')
+os.makedirs(fileAutoData, exist_ok=True)
+os.makedirs(fileAotupicture, exist_ok=True)
 
 
 class Modifier1TaskView(gui3d.TaskView):
@@ -188,8 +183,8 @@ class Modifier1TaskView(gui3d.TaskView):
             if width != rwidth or height != rheight:
                 surf = np.zeros((height, width, 3), dtype=np.uint8) + 127
                 surf[...] = surface[:1, :1, :]
-                dx0 = (width - rwidth) / 2
-                dy0 = (height - rheight) / 2
+                dx0 = (width - rwidth) // 2
+                dy0 = (height - rheight) // 2
                 dx1 = dx0 + rwidth
                 dy1 = dy0 + rheight
                 surf[dy0:dy1, dx0:dx1] = surface
@@ -245,7 +240,7 @@ class Modifier1TaskView(gui3d.TaskView):
             self.categoryBox.addWidget(
                 GroupBoxRadioButton(self, self.radioButtons, categoryName, box, selected=isFirstBox))
             if isFirstBox:
-                self.groupBox.showWidget(self.groupBoxes.values()[0])
+                self.groupBox.showWidget(next(iter(self.groupBoxes.values())))
         else:
             box = self.groupBoxes[categoryName]
 
